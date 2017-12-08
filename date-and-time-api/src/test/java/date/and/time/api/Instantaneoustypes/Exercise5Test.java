@@ -1,4 +1,4 @@
-package date.and.time.api;
+package date.and.time.api.Instantaneoustypes;
 
 import common.test.tool.annotation.Necessity;
 import common.test.tool.dataset.DateAndTimes;
