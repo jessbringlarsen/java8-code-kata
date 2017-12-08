@@ -2,17 +2,14 @@ package date.and.time.api;
 
 import common.test.tool.annotation.Necessity;
 import common.test.tool.dataset.DateAndTimes;
-
 import org.junit.Test;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class Exercise2Test {
 
