@@ -1,4 +1,4 @@
-package date.and.time.api.Instantaneoustypes;
+package date.and.time.api.othertypes;
 
 import common.test.tool.dataset.DateAndTimes;
 import org.junit.Test;
