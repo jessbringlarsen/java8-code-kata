@@ -6,7 +6,10 @@ import common.test.tool.dataset.DateAndTimes;
 import org.junit.Test;
 
 import java.time.*;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.TemporalAmount;
 import java.util.Calendar;
 
 import static org.hamcrest.Matchers.is;
@@ -61,7 +64,7 @@ public class Exercise1Test {
          * Create a {@link LocalDate} from {@link ld} adjusted into first day of next year
          * by using {@link LocalDate#with} and {@link TemporalAdjusters#firstDayOfNextYear}
          */
-        LocalDate localDate = null;
+        LocalDate localDate = ld.with(TemporalAdjusters.firstDayOfNextYear());
 
         assertThat(localDate.getYear(), is(ld.getYear() + 1));
         assertThat(localDate.getMonth(), is(Month.JANUARY));
@@ -77,7 +80,7 @@ public class Exercise1Test {
          * Create a {@link LocalDate} from {@link ld} with 10 month later
          * by using {@link LocalDate#plusDays} or {@link LocalDate#plus}
          */
-        LocalDate localDate = null;
+        LocalDate localDate = ld.plus(10, ChronoUnit.MONTHS);
 
         assertThat(localDate.getYear(), is(ld.getYear() + 1));
         assertThat(localDate.getMonth(), is(Month.APRIL));
