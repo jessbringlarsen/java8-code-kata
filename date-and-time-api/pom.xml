@@ -16,5 +16,11 @@
             <groupId>java8-code-kata</groupId>
             <artifactId>common-test-tool</artifactId>
         </dependency>
+        <!-- ThreeTen-Extra provides additional date-time classes that complement those in Java SE 8. -->
+        <dependency>
+            <groupId>org.threeten</groupId>
+            <artifactId>threeten-extra</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
 </project>

@@ -11,7 +11,7 @@ import java.time.temporal.Temporal;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class Exercise7Test {
+public class DurationExplorationTest {
 
     @Test
     public void durationInSeconds() {

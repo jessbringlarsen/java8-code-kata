@@ -9,6 +9,12 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.TextStyle;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalField;
+import java.util.Locale;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
@@ -69,5 +75,35 @@ public class Exercise5Test {
         LocalDate localDate = date.toLocalDate();
 
         assertThat(localDate.toString(), is("2015-06-18"));
+    }
+
+    @Test
+    public void timeZoneConvertionTheTimeToLocalOfTheNewTimeZone() {
+        ZoneId europeCopenhagen = ZoneId.of("Europe/Copenhagen");
+        DateAndTimes.LDT_20150618_23073050.atZone(europeCopenhagen);
+
+        ZonedDateTime converted = DateAndTimes.ZDT_20150618_23073050.withZoneSameInstant(europeCopenhagen);
+
+        assertThat(converted.get(ChronoField.HOUR_OF_DAY), is(16));
+        assertThat(converted.getZone(), is(europeCopenhagen));
+    }
+
+    @Test
+    public void changeTimeZoneKeepingTheSameLocalTime() {
+        ZoneId europeCopenhagen = ZoneId.of("Europe/Copenhagen");
+        DateAndTimes.LDT_20150618_23073050.atZone(europeCopenhagen);
+
+        ZonedDateTime converted = DateAndTimes.ZDT_20150618_23073050.withZoneSameLocal(europeCopenhagen);
+
+        assertThat(converted.get(ChronoField.HOUR_OF_DAY), is(23));
+        assertThat(converted.getZone(), is(europeCopenhagen));
+    }
+
+    @Test
+    public void addTimeZone() {
+        ZoneId europeCopenhagen = ZoneId.of("Europe/Copenhagen");
+        ZonedDateTime zonedDateTime = DateAndTimes.LDT_20150618_23073050.atZone(europeCopenhagen);
+
+        assertThat(zonedDateTime.getZone(), is(europeCopenhagen));
     }
 }

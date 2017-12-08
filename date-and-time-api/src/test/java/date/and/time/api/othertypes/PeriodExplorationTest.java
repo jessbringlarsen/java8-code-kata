@@ -10,9 +10,7 @@ import java.time.Period;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class Exercise8Test {
-
-
+public class PeriodExplorationTest {
 
     @Test
     @Necessity(true)
